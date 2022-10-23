@@ -50,7 +50,7 @@
                   <td>{{ $data->alamat }}</td>
                   <td><img src="{{ url('images/'.$data->photo) }}" alt="user photo" width="50"></td>
                   <td>
-                    <a href="#" class="btn btn-success btn-sm">Detail</a>
+                    <a href="/guru/profil/{{$data->id}}" class="btn btn-success btn-sm">Detail</a>
                     <a href="#" class="btn btn-success btn-sm">Edit</a>
                     <button type="submit" name="submit" class="btn btn-danger btn-sm">Delete</button>
                   </td>

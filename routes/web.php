@@ -19,5 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('guru', [GuruController::class, 'index']);
+Route::get('guru/profil/{id}', [GuruController::class, 'profil']);
 Route::get('guru/create', [GuruController::class, 'create']);
 Route::post('guru/insert', [GuruController::class, 'insert']);

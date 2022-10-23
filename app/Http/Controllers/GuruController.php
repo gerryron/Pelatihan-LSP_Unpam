@@ -18,6 +18,14 @@ class GuruController extends Controller
         return view('guru.index', $data);
     }
 
+    public function profil($id) {
+        $guru = Guru::find($id);
+        $data = [
+            'guru' => $this->Guru->detailData($id),
+        ];
+        return view('guru.profil', ['guru' => $guru, 'data' => $data]);
+    }
+
     public function create() {
         return view('guru.create');
     }
