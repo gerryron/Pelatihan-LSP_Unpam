@@ -51,8 +51,9 @@
                   <td><img src="{{ url('images/'.$data->photo) }}" alt="user photo" width="50"></td>
                   <td>
                     <a href="/guru/profil/{{$data->id}}" class="btn btn-success btn-sm">Detail</a>
-                    <a href="#" class="btn btn-success btn-sm">Edit</a>
-                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Delete</button>
+                    <a href="/guru/edit/{{$data->id}}" class="btn btn-success btn-sm">Edit</a>
+                    <button type="submit" name="submit" class="btn btn-danger btn-sm"
+                    data-toggle="modal" data-target="#delete{{$data->id}}">Delete</button>
                   </td>
                 </tr>
                 <?php $no++; ?>
@@ -65,6 +66,30 @@
     </div>
   </div>
 </div>
+
+<!-- modal dialog delete -->
+@foreach($guru as $data)
+<div class="modal modal-danger fade" id="delete{{$data->id}}">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Form Konfirmasi</h4>
+      </div>
+      <div class="modal-body">
+        <p>Anda Yakin ingin menghapus data Guru yang bernama {{ $data->nama }} </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+        <a href="/guru/delete/{{$data->id}}" class="btn btn-outline">Hapus</a>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+
 @endsection
 @push('scripts')
 <script>

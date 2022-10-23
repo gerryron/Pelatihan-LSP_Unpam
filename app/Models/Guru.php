@@ -23,4 +23,8 @@ class Guru extends Model
         return DB::table('guru')->where('id', '$id')->first();
     }
 
+    public function updateData($id, $data) {
+        DB::table('guru')->where('id', $id)->update($data);
+    }
+
 }
